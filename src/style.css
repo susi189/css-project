@@ -1,0 +1,109 @@
+:root {
+  --blue: #5ab1bb;
+  --yellow: #e5d352;
+}
+
+html {
+  box-sizing: border-box;
+  font-family: "Chakra Petch", sans-serif;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  background: linear-gradient(var(--yellow), white);
+  background-size: 340px, auto;
+  /* min-height: calc(100vh - 100px); */
+  margin: 50px;
+  /* background: white; */
+  background-attachment: fixed;
+  letter-spacing: -1px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.title {
+  font-size: 3em;
+  padding: 50px;
+}
+
+.rounds {
+  font-size: 2em;
+}
+
+.main {
+  display: flex;
+  justify-content: space-between;
+}
+
+.player {
+  font-size: 2em;
+  text-align: center;
+}
+
+.player-selection,
+.computer-selection {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.game-board {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.score {
+  font-size: 4em;
+}
+
+.item,
+.item-c {
+  margin: 10px;
+  background: yellowgreen;
+  border-radius: 20px;
+  width: 150px;
+  height: 150px;
+}
+
+.selected {
+  background: coral;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    background-color: rebeccapurple;
+  }
+  50% {
+    background-color: #a077a8;
+  }
+}
+.won {
+  animation: pulse 0.5s infinite;
+}
+
+/* final page style */
+.finalResult {
+  font-size: 50px;
+  padding-top: 100px;
+}
+
+img {
+  padding: 50px;
+}
+
+#reloadButton {
+  width: 100px;
+  height: 50px;
+}
