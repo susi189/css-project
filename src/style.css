@@ -1,6 +1,10 @@
 :root {
-  --blue: #5ab1bb;
-  --yellow: #e5d352;
+  --dark: #1a2f38;
+  --green: #2a9d8f;
+  --bright-green: #7eddd2;
+  --yellow: #e9c46a;
+  --orange: #f4a261;
+  --red: #e45c3a;
 }
 
 html {
@@ -15,13 +19,15 @@ html {
 }
 
 body {
-  background: linear-gradient(var(--yellow), white);
-  background-size: 340px, auto;
+  background-color: var(--yellow);
+  background-image: linear-gradient(to bottom right, var(--yellow), white);
+  /* background-size: 340px, auto; */
   /* min-height: calc(100vh - 100px); */
-  margin: 50px;
+  margin: 40px;
   /* background: white; */
   background-attachment: fixed;
   letter-spacing: -1px;
+  color: var(--dark);
 }
 
 .header {
@@ -32,12 +38,12 @@ body {
 }
 
 .title {
-  font-size: 3em;
-  padding: 50px;
+  font-size: 2em;
+  padding-bottom: 40px;
 }
 
 .rounds {
-  font-size: 2em;
+  font-size: 1.5em;
 }
 
 .main {
@@ -46,11 +52,11 @@ body {
 }
 
 .player {
-  font-size: 2em;
+  font-size: 1.5em;
   text-align: center;
 }
 
-.player-selection,
+.player-s,
 .computer-selection {
   display: flex;
   flex-direction: column;
@@ -69,41 +75,65 @@ body {
 
 .item,
 .item-c {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 10px;
-  background: yellowgreen;
+  background: var(--green);
   border-radius: 20px;
-  width: 150px;
-  height: 150px;
+  height: 100px;
+  width: 100px;
 }
 
+img {
+  padding: 20px;
+  width: 100px;
+}
 .selected {
-  background: coral;
+  background: var(--bright-green);
 }
 
+/* won the round */
 @keyframes pulse {
   0%,
   100% {
-    background-color: rebeccapurple;
+    background-color: var(--red);
   }
   50% {
-    background-color: #a077a8;
+    background-color: var(--orange);
   }
 }
+
 .won {
   animation: pulse 0.5s infinite;
 }
 
-/* final page style */
-.finalResult {
-  font-size: 50px;
-  padding-top: 100px;
+/* winnner of the game */
+@keyframes winner {
+  0%,
+  100% {
+    color: var(--dark);
+  }
+  50% {
+    color: var(--green);
+  }
 }
 
-img {
-  padding: 50px;
+.winner {
+  animation: winner 0.5s infinite;
 }
 
-#reloadButton {
-  width: 100px;
+.restart {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  background: var(--red);
+  border: none;
+  border-radius: 10px;
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 1.3rem;
+  width: 150px;
   height: 50px;
 }

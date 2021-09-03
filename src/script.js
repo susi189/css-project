@@ -1,12 +1,14 @@
+const html = document.querySelector("html");
 const section = document.querySelector("section");
 const header = document.querySelector(".header");
 const title = document.querySelector(".title");
 const round = document.querySelector(".rounds");
-const game = document.querySelector(".main");
+const main = document.querySelector(".main");
 const items = document.querySelectorAll(".item");
 const rounds = document.querySelector(".rounds");
 const score = document.querySelector(".score");
-const selectedItem = game.querySelectorAll(".item-c");
+const selectedItem = main.querySelectorAll(".item-c");
+const restart = document.querySelector(".restart");
 
 const computerPlay = function () {
   const elem = ["rock", "paper", "scissors"];
@@ -24,66 +26,82 @@ let computerScore = 0;
 let roundCount = 0;
 
 function play(playerSelection, computerPlay) {
-  if (roundCount < 10) {
-    if (
-      (playerSelection === "rock" && computerPlay === "paper") ||
-      (playerSelection === "paper" && computerPlay === "scissors") ||
-      (playerSelection === "scissors" && computerPlay === "rock")
-    ) {
-      computerScore++;
-      title.innerText = "Score for the computer";
-      selectedItem.forEach((e) => {
-        if (e.classList.contains("selected")) {
-          e.classList.add("won");
-        }
-      });
-    } else if (
-      (playerSelection === "paper" && computerPlay === "rock") ||
-      (playerSelection === "scissors" && computerPlay === "paper") ||
-      (playerSelection === "rock" && computerPlay === "scissors")
-    ) {
-      playerScore++;
-      title.innerText = "Score for you!";
-      items.forEach((e) => {
-        if (e.classList.contains("selected")) {
-          e.classList.add("won");
-        }
-      });
-    } else if (
-      (playerSelection === "paper" && computerPlay === "paper") ||
-      (playerSelection === "scissors" && computerPlay === "scissors") ||
-      (playerSelection === "rock" && computerPlay === "rock")
-    ) {
-      title.innerText = "Tie!";
-    }
-    roundCount++;
-    rounds.innerText = "Round: " + roundCount;
-    score.innerText = playerScore + ":" + computerScore;
+  // if (roundCount < 10) {
+  if (
+    (playerSelection === "rock" && computerPlay === "paper") ||
+    (playerSelection === "paper" && computerPlay === "scissors") ||
+    (playerSelection === "scissors" && computerPlay === "rock")
+  ) {
+    computerScore++;
+    title.innerText = "Sorry, not this time";
+    selectedItem.forEach((e) => {
+      if (e.classList.contains("selected")) {
+        e.classList.add("won");
+      }
+    });
+  } else if (
+    (playerSelection === "paper" && computerPlay === "rock") ||
+    (playerSelection === "scissors" && computerPlay === "paper") ||
+    (playerSelection === "rock" && computerPlay === "scissors")
+  ) {
+    playerScore++;
+    title.innerText = "Score for you!";
+    items.forEach((e) => {
+      if (e.classList.contains("selected")) {
+        e.classList.add("won");
+      }
+    });
+  } else if (
+    (playerSelection === "paper" && computerPlay === "paper") ||
+    (playerSelection === "scissors" && computerPlay === "scissors") ||
+    (playerSelection === "rock" && computerPlay === "rock")
+  ) {
+    title.innerText = "Tie!";
   }
+  roundCount++;
+  rounds.innerText = "Round: " + roundCount;
+  score.innerText = playerScore + ":" + computerScore;
+  // }
 }
 
 function endOfGame() {
   if (playerScore > computerScore) {
     title.innerText = "You are the winner!";
+    title.classList.add("winner");
+  } else if (playerScore === computerScore) {
+    title.innerText = "No winner for this game";
   } else {
-    title.innerText = "Sorry, no luck this time";
+    title.innerText = "You lost the game";
   }
 }
 
-items.forEach((item) => {
-  item.addEventListener("click", (event) => {
-    //remove class selected from other items
-    items.forEach((e) => e.classList.remove("selected", "won"));
-    selectedItem.forEach((e) => e.classList.remove("selected", "won"));
-    //add class selected to the selected item
-    item.classList.add("selected");
-    play(event.target.alt, computerPlay());
-    if (roundCount === 10) {
-      endOfGame();
-      items.forEach((e) => e.removeEventListener());
-      // setTimeout(() => {
-      //   item.removeEventListener();
-      // }, 500);
-    }
+function removeAllClasses() {
+  items.forEach((e) => {
+    e.classList.remove("selected", "won");
   });
+  selectedItem.forEach((e) => e.classList.remove("selected", "won"));
+}
+
+function handleClick(event) {
+  if (roundCount === 10) {
+    section.removeChild(main);
+    header.removeChild(round);
+    return endOfGame();
+  } else {
+    removeAllClasses();
+
+    let clickedItem = event.path[1];
+    console.log(event);
+    clickedItem.classList.add("selected");
+
+    play(clickedItem.id, computerPlay());
+  }
+}
+
+items.forEach((i) => {
+  i.addEventListener("click", handleClick);
+});
+
+restart.addEventListener("click", () => {
+  location.reload();
 });
