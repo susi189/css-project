@@ -49,6 +49,7 @@ body {
 
 .rounds {
   font-size: 2em;
+  padding-bottom: 10px;
 }
 
 .main {
@@ -141,6 +142,7 @@ img {
 
 button {
   background: var(--red);
+  box-shadow: 5px 10px 8px #888888;
   border: none;
   border-radius: 10px;
   font-family: "Chakra Petch", sans-serif;
