@@ -33,7 +33,7 @@ function play(playerSelection, computerPlay) {
     (playerSelection === "scissors" && computerPlay === "rock")
   ) {
     computerScore++;
-    title.innerText = "Sorry, not this time";
+    // title.innerText = "Sorry, not this time";
     selectedItem.forEach((e) => {
       if (e.classList.contains("selected")) {
         e.classList.add("won");
@@ -45,7 +45,7 @@ function play(playerSelection, computerPlay) {
     (playerSelection === "rock" && computerPlay === "scissors")
   ) {
     playerScore++;
-    title.innerText = "Score for you!";
+    // title.innerText = "Score for you!";
     items.forEach((e) => {
       if (e.classList.contains("selected")) {
         e.classList.add("won");
@@ -56,7 +56,7 @@ function play(playerSelection, computerPlay) {
     (playerSelection === "scissors" && computerPlay === "scissors") ||
     (playerSelection === "rock" && computerPlay === "rock")
   ) {
-    title.innerText = "Tie!";
+    // title.innerText = "Tie!";
   }
   roundCount++;
   rounds.innerText = "Round: " + roundCount;
@@ -65,6 +65,7 @@ function play(playerSelection, computerPlay) {
 }
 
 function endOfGame() {
+  header.appendChild(title);
   if (playerScore > computerScore) {
     title.innerText = "You are the winner!";
     title.classList.add("winner");
@@ -83,6 +84,9 @@ function removeAllClasses() {
 }
 
 function handleClick(event) {
+  if (roundCount === 0) {
+    header.removeChild(title);
+  }
   if (roundCount === 10) {
     section.removeChild(main);
     header.removeChild(round);

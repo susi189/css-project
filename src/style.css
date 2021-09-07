@@ -19,6 +19,8 @@ html {
 }
 
 body {
+  display: flex;
+  justify-content: center;
   background-color: var(--yellow);
   background-image: linear-gradient(to bottom right, var(--yellow), white);
   /* background-size: 340px, auto; */
@@ -29,7 +31,13 @@ body {
   letter-spacing: -1px;
   color: var(--dark);
 }
-
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 500px;
+  height: 500px;
+}
 .header {
   display: flex;
   flex-direction: column;
@@ -81,6 +89,7 @@ body {
   margin: 10px;
   background: var(--green);
   border-radius: 20px;
+  box-shadow: 5px 10px 8px #888888;
   height: 100px;
   width: 100px;
 }
@@ -136,4 +145,8 @@ button {
   font-size: 1.3rem;
   width: 150px;
   height: 50px;
+}
+
+/* phone */
+@media screen and (max-width: 600px) {
 }
