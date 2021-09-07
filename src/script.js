@@ -32,7 +32,6 @@ function play(playerSelection, computerPlay) {
     (playerSelection === "scissors" && computerPlay === "rock")
   ) {
     computerScore++;
-    // title.innerText = "Sorry, not this time";
     selectedItem.forEach((e) => {
       if (e.classList.contains("selected")) {
         e.classList.add("won");
