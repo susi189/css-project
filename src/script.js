@@ -26,7 +26,6 @@ let computerScore = 0;
 let roundCount = 0;
 
 function play(playerSelection, computerPlay) {
-  // if (roundCount < 10) {
   if (
     (playerSelection === "rock" && computerPlay === "paper") ||
     (playerSelection === "paper" && computerPlay === "scissors") ||
@@ -61,7 +60,6 @@ function play(playerSelection, computerPlay) {
   roundCount++;
   rounds.innerText = "Round: " + roundCount;
   score.innerText = playerScore + ":" + computerScore;
-  // }
 }
 
 function endOfGame() {
