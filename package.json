@@ -2,7 +2,7 @@
   "name": "css-project",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "script.js",
   "scripts": {
     "start": "browser-sync start --server --files '**/*.css, **/*.html, **/*.js, !node_modules/**/*' --directory --port 3000"
   },
@@ -11,5 +11,8 @@
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.27.5"
+  },
+  "dependencies": {
+    "js-confetti": "^0.9.0"
   }
 }

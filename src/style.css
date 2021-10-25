@@ -134,10 +134,16 @@ img {
   animation: winner 0.5s infinite;
 }
 
-.restart {
+.restart,
+.confetti-btn {
   display: flex;
   justify-content: center;
   padding: 20px;
+}
+
+.confetti-btn button {
+  background: var(--orange);
+  font-size: 1rem;
 }
 
 button {

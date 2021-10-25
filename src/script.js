@@ -10,6 +10,20 @@ const score = document.querySelector(".score");
 const selectedItem = main.querySelectorAll(".item-c");
 const restart = document.querySelector(".restart");
 
+const jsConfetti = new JSConfetti();
+
+const moreConfetti = document.createElement("div");
+moreConfetti.classList.add("confetti-btn");
+const moreConfettiBtn = document.createElement("button");
+moreConfettiBtn.innerText = "Celebrate!";
+moreConfetti.appendChild(moreConfettiBtn);
+
+const releaseConfetti = () => {
+  jsConfetti.addConfetti({
+    confettiColors: ["#1a2f38", "#2a9d8f", "#7eddd2", "#e45c3a"],
+  });
+};
+
 const computerPlay = function () {
   const elem = ["rock", "paper", "scissors"];
   let randomIndex = Math.floor(Math.random() * Math.floor(elem.length));
@@ -63,6 +77,8 @@ function endOfGame() {
   if (playerScore > computerScore) {
     title.innerText = "You are the winner!";
     title.classList.add("winner");
+    section.appendChild(moreConfetti);
+    releaseConfetti();
   } else if (playerScore === computerScore) {
     title.innerText = "No winner for this game";
   } else {
@@ -100,3 +116,5 @@ items.forEach((i) => {
 restart.addEventListener("click", () => {
   location.reload();
 });
+
+moreConfettiBtn.addEventListener("click", releaseConfetti);
