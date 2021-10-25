@@ -4,7 +4,10 @@ In this project I improved the design of the [first version](https://github.com/
 
 - CSS-Flexbox,
 - CSS variables,
-- CSS animations (@keyframes)
-- working with libraries (added confetti to the "You are the winner!" page)
+- CSS animations (@keyframes),
+- working with libraries (added confetti to the "You are the winner!" page),
+- working with event listeners
 
-Try it out!
+---
+
+[Try it out!](https://susi189.github.io/rps-game/src/)
