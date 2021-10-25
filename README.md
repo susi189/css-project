@@ -6,3 +6,5 @@ In this project I improved the design of the [first version](https://github.com/
 - CSS variables,
 - CSS animations (@keyframes)
 - working with libraries (added confetti to the "You are the winner!" page)
+
+Try it out!
