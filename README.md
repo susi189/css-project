@@ -1,6 +1,6 @@
 **About this project**
 
-![project image](./assets/project-image.png)
+![project image](./src/assets/project-image.png)
 
 [Try it out!](https://susi189.github.io/rps-game/src/)
 
